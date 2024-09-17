@@ -52,17 +52,17 @@ build() {
 
     build_arch="$(determine_goarch)"
 
-	# Generating these mocks tends to fail, but the generated files are committed.
-	# Touching them prevents make from trying to recreate them.
-	touch coderd/database/dbmock/dbmock.go \
-	    coderd/database/pubsub/psmock/psmock.go
+    # Generating these mocks tends to fail, but the generated files are committed.
+    # Touching them prevents make from trying to recreate them.
+    touch coderd/database/dbmock/dbmock.go \
+        coderd/database/pubsub/psmock/psmock.go
 
     # "src" env var is used to override coder source directory, because their build
     # scripts look for .git which is usually the AUR packaging scripts (since we are
     # using release tarballs)
-	env CODER_FORCE_VERSION=${pkgver} \
+    env CODER_FORCE_VERSION=${pkgver} \
         src="$(pwd)" \
-	    make build/coder-slim_linux_${build_arch}
+        make build/coder-slim_linux_${build_arch}
 
     # Make sure go path is writable so it can be cleaned up
     chmod -R u+w "${srcdir}/go"
@@ -73,10 +73,10 @@ package_coder() {
     cd "${srcdir}/${pkgname}-${pkgver}"
     build_arch="$(determine_goarch)"
 
-	install -d -m755 "${pkgdir}/usr/bin"
+    install -d -m755 "${pkgdir}/usr/bin"
     install -m755 "build/coder-slim_${pkgver}_linux_${build_arch}" "${pkgdir}/usr/bin/coder"
-	
-	install -d -m755 "${pkgdir}/usr/share/licenses/coder"
+
+    install -d -m755 "${pkgdir}/usr/share/licenses/coder"
     install -m644 "LICENSE" "${pkgdir}/usr/share/licenses/coder/LICENSE"
 }
 
