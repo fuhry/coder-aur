@@ -1,0 +1,16 @@
+pkgbase = coder
+	pkgdesc = Provision remote development environments via Terraform
+	pkgver = 2.15.0
+	pkgrel = 1
+	url = https://github.com/coder/coder
+	arch = i386
+	arch = x86_64
+	arch = armv7h
+	arch = aarch64
+	license = AGPL-3.0
+	makedepends = go>=1.22.0
+	depends = glibc
+	source = coder-2.15.0.tar.gz::https://github.com/coder/coder/archive/refs/tags/v2.15.0.tar.gz
+	sha512sums = 8588ed75ce1a522215dba680b515cdf7bfb63abcc08c325805bef5ae221e2cab5c8d8263bd9db2fff4c9b7ba478238029510c408b076c8656e7e8934d6d24654
+
+pkgname = coder
