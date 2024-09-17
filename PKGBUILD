@@ -1,5 +1,4 @@
 # vim: set ft=sh ts=4 sw=4 et:
-# Maintainer: Maarten de Boer <maarten@cloudstek.nl>
 # Maintainer: Dan Fuhry <dan@fuhry.com>
 
 pkgname=('coder')
