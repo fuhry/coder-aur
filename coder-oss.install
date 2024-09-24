@@ -1,0 +1,21 @@
+#!/bin/false
+# vim: set ft=sh ts=4 sw=4 et:
+
+. /usr/share/makepkg/util/message.sh
+
+_notify_agpl_build() {
+    msg "[coder] NOTE: This package ships the AGPLv3-licensed version of coder."
+    msg "[coder] It does not include enterprise features. If you are using coder"
+    msg "[coder] in an enterprise setting and are encountering missing features,"
+    msg "[coder] please rebuild the package with license=('Proprietary') or use"
+    msg "[coder] the coder-bin package instead."
+}
+
+post_install() {
+    _notify_agpl_build
+}
+
+post_upgrade() {
+    _notify_agpl_build
+}
+
